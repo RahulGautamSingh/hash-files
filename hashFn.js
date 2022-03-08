@@ -1,9 +1,8 @@
-import { hashElement } from "folder-hash";
-
+import hasha from "hasha";
 export default async function getHash(managerName) {
   const options = {
-    files: { include: ["extract.js"] },
+    algorithm: "md5",
   };
-  const hash = await hashElement(`./lib/manager/${managerName}`, options);
+  const hash = await hasha.fromFile(`./lib/manager/${managerName}/extract.js`, options);
   return hash;
 }
