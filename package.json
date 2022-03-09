@@ -10,6 +10,7 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "@sindresorhus/is": "^4.6.0",
     "hasha": "^5.2.2"
   }
 }
