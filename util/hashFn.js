@@ -6,7 +6,6 @@ const options = {
 
 export async function getHash(manager, files, snapshots) {
   const hashes = [];
-console.log(manager, files, snapshots)
   for (const file of files) {
     const hash = await getFileHash(manager, file, "test");
     hashes.push(hash);
