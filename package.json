@@ -11,6 +11,7 @@
   "type": "module",
   "dependencies": {
     "@sindresorhus/is": "^4.6.0",
-    "hasha": "^5.2.2"
+    "hasha": "^5.2.2",
+    "minimatch": "^5.0.1"
   }
 }
