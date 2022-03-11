@@ -1,10 +1,9 @@
 import hasha from "hasha";
-import fs from "fs";
-
+import fs from "fs/promises";
+import minimatch from "minimatch";
 const options = {
   algorithm: "md5",
 };
-
 async function getFileHash(managerName, fileAddr) {
   try {
     const hash = await hasha.fromFile(
@@ -20,10 +19,10 @@ async function getFileHash(managerName, fileAddr) {
 
 export async function getHash(manager) {
   let hashes = [];
-  let files = fs.readdirSync(`./lib/modules/manager/${manager}`);
+  let files = await fs.readdir(`./lib/modules/manager/${manager}`);
 
   if (files.includes("__snapshots__")) {
-    const snapshots = fs.readdirSync(
+    const snapshots = await fs.readdir(
       `./lib/modules/manager/${manager}/__snapshots__`
     );
 
@@ -33,7 +32,7 @@ export async function getHash(manager) {
     }
   }
 
-  files = files.filter((fileName) => RegExp(/.*(spec.js)/).test(fileName));
+  files = files.filter((fileName) => minimatch(fileName, "*.spec.ts"));
   for (const file of files) {
     const hash = getFileHash(manager, file);
     hashes.push(hash);
