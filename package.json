@@ -1,7 +1,7 @@
 {
   "name": "fingerprinting",
   "version": "1.0.0",
-  "description": "track updates in files based on hash",
+  "description": "track updates in files based on hashes of testfiles (tests must be robust to work)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
