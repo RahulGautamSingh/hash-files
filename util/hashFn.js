@@ -27,7 +27,7 @@ export async function getHash(manager) {
     );
 
     for (const snap of snapshots) {
-      const hash = await getFileHash(manager, `__snapshots__/${snap}`);
+      const hash = getFileHash(manager, `__snapshots__/${snap}`);
       hashes.push(hash);
     }
   }
