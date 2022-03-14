@@ -1,4 +1,4 @@
-function someFunction(input) {
+function someFunction(input:string) {
   return input;
 }
 export { someFunction };
